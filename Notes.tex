@@ -1,4 +1,4 @@
-\documentclass[12pt, parskip=half]{scrartcl}
+\documentclass[12pt, parskip=half]{scrreprt}
 \usepackage[sexy]{evan}
 
 \title{Notes}
@@ -7,6 +7,23 @@
 
 \maketitle
 
+\chapter{Measure Theory}
 
+\section{Measure Spaces}
+
+\begin{definition}
+    An \emph{algebra} $\Sigma_0$ on a set $S$ is a collection of subsets of $S$ such that
+    \begin{itemize}
+        \item $S\in\Sigma_0$.
+        \item if $F\in\Sigma_0$, then $F^C:=S\setminus F\in\Sigma_0$.
+        \item $\Sigma_0$ is closed under finite unions.
+    \end{itemize}
+\end{definition}
+
+Notice that this implies that $\Sigma_0$ must also be closed under finite intersections.
+
+\begin{definition}
+    A \emph{$\sigma$-algebra} $\Sigma$ is an algebra closed under countably many unions (and thus intersections). Then, the pair $(S, \Sigma)$ is a \emph{measurable space}.
+\end{definition}
 
 \end{document}
