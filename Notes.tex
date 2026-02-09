@@ -46,7 +46,64 @@ To turn a measurable space into a measure space, we must assign a measure.
 \end{definition}
 
 \begin{definition}
-    A measurable space endowed with a countably additive set function is called a \emph{measure space}.
+    A measurable space endowed with a countably additive set function $\mu$, denoted a \emph{measure}, is called a \emph{measure space}. If $\mu(S)=1$, then the measure is a \emph{probability measure}.
 \end{definition}
+
+We have several elementary inequalities which we may be familiar with, namely:
+\begin{itemize}
+    \item $\mu(A\cup B)\le \mu(A)+\mu(B)$.
+    \item $\mu(\bigcup S_i)\le\sum\mu(S_i)$ for finitely many $S_i$.
+\end{itemize}
+Furthermore, if $\mu(S)$ is finite, then:
+\begin{itemize}
+    \item $\mu(A\cup B)=\mu(A)+\mu(B)-\mu(A\cap B)$.
+    \item principle of inclusion-exclusion for finitely many $S_i$.
+\end{itemize}
+
+Proof of the principle of inclusion-exclusion is kind of boring and just induction to be honest.
+
+As a result, we have the following somewhat obvious fact:
+\begin{theorem}
+    Let $F_n\in\Sigma$ for $n\in\mathbb N$, and let $F_n\subseteq F_{n+1}$ for all $n$ and $\bigcup F_n=F$. 
+
+    Then, $\mu(F_n)$ approaches $\mu(F)$.
+\end{theorem}
+
+\begin{proof}
+    Let $G_n$ be defined so that $G_1:=F_1$ and $G_n:=G_n\setminus G_{n-1}$ for $n\ge 2$. Then,
+    \[\mu(F_n)=\mu\left(\bigcup_{i\le n}G_i\right)=\sum_{i\le n}\mu(G_i),\]
+    hence
+    \[\lim_{n\to\infty}\mu(F_n)=\sum\mu(G_n)=\mu(F).\]
+\end{proof}
+
+Similarly, if $F_n\supseteq F_{n+1}$ for all $n$ and $\bigcap F_n=F$, then $\mu(F_n)$ also approaches $\mu(F)$.
+
+
+\begin{lemma}[Uniqueness of Extension]
+    Suppose $S$ is a set, and let $\mathcal I$ be a \emph{$\pi$-system}, or a collection of subsets of $S$ closed under finite intersection. 
+
+    Let $\Sigma:=\sigma(\mathcal I)$, and suppose $\mu_1$ and $\mu_2$ are measures on $(S,\Sigma)$ such that $\mu_1(S)=\mu_2(S)<\infty$ and for all $X\in\mathcal I$ that
+    \[\mu_1(X)=\mu_2(X).\]
+    Then, for all $X\in\Sigma$, we have that
+    \[\mu_1(X)=\mu_2(X).\] 
+\end{lemma}
+
+\begin{theorem}[Carathedory's Extension Theorem]
+    Let $S$ be a set and $\Sigma_0$ an algebra on $S$. Define $\Sigma:=\sigma(\Sigma_0)$. Then, if $\mu_0:\Sigma_0\to[0,\infty)$ is a countably additive map, then there exists a corresponding measure $\mu$ on $\Sigma$ such that for all $X\in\Sigma_0$ that
+    \[\mu(X)=\mu_0(X).\]
+
+    If $\mu_0(S)$ is finite, then this extension is unique.
+\end{theorem}
+
+\begin{example}[Lebesgue Measure]
+    Let $S=(0,1]$, and for $F\subseteq S$ that $F\in\Sigma_0$ if
+    \[F=(a_1,b_1]\cup \dots (a_n,b_n]\]
+    for finite $n$ and $0\le a_1\le b_1\le \dots\le b_n\le 1$.
+
+    Then, $\Sigma_0$ is an algebra on $S$ and can be uniquely extended to the measure space $\mathcal B(0,1]$ with measure $\mu$.
+
+    If we additionally denote $\{0\}$ to have length $0$, then we have the \emph{Lebesgue measure} on $\mathcal B[0,1]$, which we commonly denote as length.
+\end{example}
+
 
 \end{document}
