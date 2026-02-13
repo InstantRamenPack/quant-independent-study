@@ -105,5 +105,22 @@ Similarly, if $F_n\supseteq F_{n+1}$ for all $n$ and $\bigcap F_n=F$, then $\mu(
     If we additionally denote $\{0\}$ to have length $0$, then we have the \emph{Lebesgue measure} on $\mathcal B[0,1]$, which we commonly denote as length.
 \end{example}
 
+\section{Probability Theory}
+
+Consider a probability space $(\Omega, \mathcal F, \mathbb P)$, where $\Omega$ is the \emph{sample space} of \emph{sample points} $\omega\in\Omega$, and $\mathcal F$ is the collection of \emph{events}. Then, we call the \emph{probability} of an event $F\in\mathcal F$ occurring to be $\mathbb P(F)$.
+
+For example, consider the probability space of infinitely many coin flips. We'd like to show that the number of heads over the number of flips almost surely approaches $\frac 12$.
+
+Let our sample space be
+\[\Omega:=\{H,T\}^\mathbb N,\]
+so that for each $\omega\in\Omega$, we have that $\omega$ is some infinite sequence with members in $\{H,T\}$ as such:
+\[\omega=\{\omega_1,\dots\},\quad\omega_n\in\{H,T\}.\]
+
+Then, we will strategically construct $\mathcal F$. Consider the set of all sample points with the $n$th flip fixed to be heads:
+\[F_n=\{\omega\mid\omega_n=H\}.\]
+Then, we take
+\[\mathcal F=\sigma(F_n).\]
+
+
 
 \end{document}
